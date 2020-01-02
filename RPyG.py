@@ -151,10 +151,29 @@ def special_select():
 
 def name_select():
     global name
+    global strength
+    global defense
+    global health
     clear_screen()
     header()
     print("Alright. What is your name fair adventurer?")
     name = input("Name: ")
+    if name == "RPyG" or name == "rpyg":
+    # Damn I miss cheatcodes ;)
+        strength += 100
+        defense += 100
+        health += 500
+    elif name == "The Legend":
+        strength += 9999
+    elif name == "Tiny Tim":
+        strength = 0
+        defense = 0
+        health = 1
+    elif name == "Kieran M":
+        print("You cheeky bugger.")
+        exit()
+
+
     game_start()
 
 def game_start():
@@ -413,8 +432,8 @@ def battle_handler():
 
 
 
-enemy_name_options = ["Bob", "Tim", "George", "Bigg", "Lil", "The great", "Spid", "Kay", "Aaron", "Phillip", "Korrin", "David", "Kieran", "Cassandra"]
-enemy_surname = ["Kurpshank", "Smellwich", "Landar", "Dick", "Spork", "Kumkwat", "Beardsly", "The angry"]
+enemy_name_options = ["Bob", "Tim", "George", "Bigg", "Lil'", "The great", "Spid", "Kay", "Aaron", "Phillip", "Korrin", "David", "Kieran", "Cassandra", "Daniel", "Jesus", "Adam", "Jessica", "The great big", "Sir Benedict"]
+enemy_surname = ["Kurpshank", "Smellwich", "Landar", "Dick", "Spork", "Kumkwat", "Beardsly", "The angry", "The depressed", "The violent", "McLeary", "Goth", "Jenkins", "Monarch of RPyG", "Jowels"]
 
 
 
