@@ -94,10 +94,7 @@ enemy_current_health = 0
 enemy_name = "null"
 
 def class_stats(class_choice):
-    global strength
-    global defense
-    global health
-    global current_health
+    global current_health, health, strength, defense
     header()
     print("Note: stats are randomly generated based on your class choice.")
     print(lb)
@@ -122,10 +119,7 @@ def class_stats(class_choice):
     special_select()
 
 def special_select():
-    global specialty
-    global health
-    global strength
-    global defense
+    global specialty, health, strength, defense
     clear_screen()
     header()
     lbl()
@@ -159,10 +153,7 @@ def special_select():
         special_select()
 
 def name_select():
-    global name
-    global strength
-    global defense
-    global health
+    global name, strength, defense, health
     clear_screen()
     header()
     print("Alright. What is your name fair adventurer?")
@@ -206,12 +197,7 @@ def game_start():
 
 
 def tut():
-    global enemy_defense
-    global enemy_health
-    global enemy_current_health
-    global enemy_strength
-    global enemy_name
-
+    global enemy_current_health, enemy_health, enemy_defense, enemy_strength, enemy_name
 
     print("Let's get to it then. For your warmup let's have a quick sparring match.")
     time.sleep(5)
@@ -300,17 +286,7 @@ def battle_options():
 
 def battle_init():
     clear_screen()
-    global name
-    global enemy_name
-    global enemy_health
-    global enemy_current_health
-    global enemy_strength
-    global enemy_defense
-    global strength
-    global defense
-    global health
-    global current_health
-    
+    global name, enemy_name, enemy_health, enemy_current_health, enemy_strength, enemy_defense, strength, defense, health, current_health    
     if victory_count > 0:
         print("Congrats on your victory! It's time to select a stat to permanently increase...")
         lbl()
@@ -339,7 +315,7 @@ def battle_init():
             clear_screen()
             battle_init()
 
-    if victory_count%10 == 0:
+    if victory_count%10 == 0 and victory_count != 0:
         name_int = random.randint(0,(len(enemy_name_options) - 1))
         name_int_2 = random.randint(0,(len(enemy_surname) - 1))
         enemy_name = enemy_name_options[name_int] + " " + enemy_surname[name_int_2]
@@ -377,15 +353,7 @@ def battle_init():
         battle_handler()
 
 def battle_handler():
-    global health
-    global current_health
-    global enemy_health
-    global enemy_current_health
-    global strength
-    global enemy_strength
-    global defense
-    global enemy_defense
-    global victory_count
+    global health, current_health, enemy_health, enemy_current_health, strength, enemy_strength, defense, enemy_defense, victory_count
     enemy_stats()
     br()
     br()
@@ -475,14 +443,6 @@ def game_over():
 
 enemy_name_options = ["Bob", "Tim", "George", "Bigg", "Lil'", "The great", "Spid", "Kay", "Aaron", "Phillip", "Korrin", "David", "Kieran", "Cassandra", "Daniel", "Jesus", "Adam", "Jessica", "The great big", "Sir Benedict"]
 enemy_surname = ["Kurpshank", "Smellwich", "Landar", "Dick", "Spork", "Kumkwat", "Beardsly", "The angry", "The depressed", "The violent", "McLeary", "Goth", "Jenkins", "Monarch of RPyG", "Jowels"]
-
-
-
-
-
-
-
-
 
 intro()
 
