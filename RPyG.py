@@ -172,6 +172,11 @@ def name_select():
     elif name == "Kieran M":
         print("You cheeky bugger.")
         exit()
+    elif name == "InFiNiTy":
+        print("Overkill enabled.")
+        strength = 9999999
+        defense = 9999999
+        health = 999999999
 
 
     game_start()
@@ -268,9 +273,9 @@ def battle_options():
     lbl()
     print("What would you like to do?")
     lbl()
-    print("attack")
-    print("block")
-    print("heal")
+    print("1. attack")
+    print("2. block")
+    print("3. heal")
     lbl()
     choice = input("Choice: ")
     if choice == "attack" or choice == "1":
@@ -363,6 +368,7 @@ def battle_handler():
     choice = battle_options()
     enemy_action = random.randint(1,3)
     print(str(choice))
+    clear_screen()
     
     
     random_attack_modifier_enemy = random.randint(0, enemy_strength * 2)
@@ -416,19 +422,25 @@ def battle_handler():
             print(enemy_name + " kills " + name + ". R.I.P.")
             print("Game over.")
             time.sleep(5)
-            clear_screen()
-            new_game = input("Start a new game? y/n: ")
-            if new_game == "y":
-                clear_screen()
-                intro()
-            else:
-                exit()
+            game_over()
     elif (strength - enemy_defense) < 0:
         print(name + " attacks " + enemy_name + " but does no damage!")
     else:
         print(enemy_name + " attacks but is blocked!")
     battle_handler()
 
+
+
+def game_over():
+    clear_screen()
+    new_game = input("Start a new game? y/n: ")
+    if new_game == "y":
+        clear_screen()
+        intro()
+    elif new_game == "n":
+        exit()
+    else:
+        game_over()
 
 
 
