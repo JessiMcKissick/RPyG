@@ -63,6 +63,15 @@ def app_main():
     elif class_input == "exit":
         exit()
         clear_screen()
+    elif class_input == "dm":
+        print("Dev skip started.")
+        input("Press enter to begin.")
+        global health, defense, strength
+        strength = 15
+        defense = 15
+        health = 15
+        current_health = health
+        special_select()
     else:
         print("Please type one of the following: warrior, wizard, falanx.")
         app_main()
@@ -330,21 +339,42 @@ def battle_init():
             clear_screen()
             battle_init()
 
-    name_int = random.randint(0,(len(enemy_name_options) - 1))
-    name_int_2 = random.randint(0,(len(enemy_surname) - 1))
-    enemy_name = enemy_name_options[name_int] + " " + enemy_surname[name_int_2]
-    enemy_health = (random.randint(5,15) + victory_count)
-    enemy_current_health = enemy_health
-    enemy_strength = (random.randint(2,10) + victory_count)
-    enemy_defense = (random.randint(0,10) + victory_count)
-    current_health = health
+    if victory_count%10 == 0:
+        name_int = random.randint(0,(len(enemy_name_options) - 1))
+        name_int_2 = random.randint(0,(len(enemy_surname) - 1))
+        enemy_name = enemy_name_options[name_int] + " " + enemy_surname[name_int_2]
+        enemy_health = (random.randint(5,15) + (victory_count * 3))
+        enemy_current_health = enemy_health
+        enemy_strength = (random.randint(2,10) + (victory_count + 5))
+        enemy_defense = (random.randint(0,10) + (victory_count * 2))
+        current_health = health
+        clear_screen()
+        print("Your victory count is now: " + str(victory_count))
+        lbl()
+        print("And now for our next allstar match: " + name + " VS. " + enemy_name + " !")
+        lbl()
+        input("Press enter to begin battle...")
+        clear_screen()
+        battle_handler()
+        
+    else:
+        name_int = random.randint(0,(len(enemy_name_options) - 1))
+        name_int_2 = random.randint(0,(len(enemy_surname) - 1))
+        enemy_name = enemy_name_options[name_int] + " " + enemy_surname[name_int_2]
+        enemy_health = (random.randint(5,15) + victory_count)
+        enemy_current_health = enemy_health
+        enemy_strength = (random.randint(2,10) + victory_count)
+        enemy_defense = (random.randint(0,10) + victory_count)
+        current_health = health
 
-    clear_screen()
-    print("And for our next match: " + name + " VS. " + enemy_name + " !")
-    lbl()
-    input("Press enter to begin battle...")
-    clear_screen()
-    battle_handler()
+        clear_screen()
+        print("Your victory count is now: " + str(victory_count))
+        lbl()
+        print("And for our next match: " + name + " VS. " + enemy_name + " !")
+        lbl()
+        input("Press enter to begin battle...")
+        clear_screen()
+        battle_handler()
 
 def battle_handler():
     global health
@@ -370,10 +400,9 @@ def battle_handler():
     print(str(choice))
     clear_screen()
     
-    
-    random_attack_modifier_enemy = random.randint(0, enemy_strength * 2)
+    random_attack_modifier_enemy = random.randint(round(enemy_strength / 2), round(enemy_strength * 2))
     if choice == 1:
-        random_attack_modifier = random.randint(0, strength * 2)
+        random_attack_modifier = random.randint(round(strength / 2), round(strength * 2))
         if enemy_action != 2 and (random_attack_modifier - enemy_defense) > 0:
             print(name + " attacks " + enemy_name + " for " + str(random_attack_modifier) + "-" + str(enemy_defense) + " damage. (" + str(random_attack_modifier - enemy_defense) + ")")
             enemy_current_health = (enemy_current_health - (random_attack_modifier - enemy_defense))
