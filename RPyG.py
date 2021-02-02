@@ -1,3 +1,4 @@
+# This is the original version of the project. For the more modern lesson version, see "learn it">final.py
 import os
 import random
 import time

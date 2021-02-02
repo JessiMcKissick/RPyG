@@ -1,10 +1,25 @@
+# Source: https://github.com/DavidMcKissick/RPyG/tree/master/Learn%20it
+
 import os
-import random 
-import time 
-import platform  
+import random
+import time
+import platform
 
 version = "0.0"
 lb = "-----------------------------------------------------------------------------"
+
+def header():
+    print("     _____        _____    _____      _____       _____")
+    print(" ___|\    \   ___|\    \  |\    \    /    /|  ___|\    \ ")
+    print("|    |\    \ |    |\    \ | \    \  /    / | /    /\    \ ")
+    print("|    | |    ||    | |    ||  \____\/    /  /|    |  |____|")
+    print("|    |/____/ |    |/____/| \ |    /    /  / |    |    ____")
+    print("|    |\    \ |    ||    ||  \|___/    /  /  |    |   |    |")
+    print("|    | |    ||    ||____|/      /    /  /   |    |   |_,  |")
+    print("|____| |____||____|            /____/  /    |\ ___\___/  /|")
+    print("|    | |    ||    |           |`    | /     | |   /____ / |")
+    print("|____| |____||____|           |_____|/       \|___|    | /")
+    print("  \(     )/    \(                )/            \( |____|/ ")
 
 
 def lbl():
@@ -24,6 +39,8 @@ def clear_screen():
 
 def intro():
     clear_screen()
+    header()
+    lbl()
     print("Welcome to RPyG version " + version + "!")
     lbl()
     print("In this text based game, your goal is to survive as many consecutive battles in a row as possible.")
@@ -38,6 +55,7 @@ def intro():
 
 def app_start():
     clear_screen()
+    header()
     lbl()
     print("First, let's pick a class.")
     print("1. warrior. Balance between attack rating and defense rating. Good health.")
@@ -103,6 +121,7 @@ def class_stats(class_choice):
 def special_select():
     global specialty, health, strength, defense
     clear_screen()
+    header()
     lbl()
     print("Next, let's select a specialty.")
     lbl()
@@ -140,6 +159,8 @@ def special_select():
 def name_select():
     global name
     clear_screen()
+    header()
+    lbl()
     print("Alright. What is your name fair adventurer?")
     name = input("Name: ")
     game_start()
@@ -147,6 +168,7 @@ def name_select():
 
 def game_start():
     clear_screen()
+    header()
     lbl()
     print("Welcome to the arena! Here you will face enemy after enemy in deadly combat until you either run out of oponents, or die.")
     print("Would you like to start with a warmup? (tutorial)")
@@ -154,7 +176,7 @@ def game_start():
     tutorial = input("Do a warmup?(y/n): ")
     if tutorial == "y":
         print("Alright, let's get you up to speed.")
-        tut() 
+        tut()
     else:
         print("Straight into the thick of it eh? I like your style son. ")
         battle_init()
