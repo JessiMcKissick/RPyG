@@ -1,6 +1,7 @@
 import os
 import random
 import time
+import platform
 
 version = "0.2"
 lb = "-----------------------------------------------------------------------------"
@@ -30,8 +31,10 @@ def header():
     print("  \(     )/    \(                )/            \( |____|/ ")
 
 def clear_screen():
-    # Todo: Write a more robust system that detects the OS and uses the relevant command.
-    os.system("cls")
+    if platform.system() == "Windows":
+        os.system("cls")
+    else:
+        os.system("clear")
 
 def intro():
     clear_screen()
