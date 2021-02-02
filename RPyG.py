@@ -55,12 +55,12 @@ def app_main():
     header()
     print(lb)
     print("First, let's pick a class.")
-    print("warrior. Balance between attack rating and defense rating. Good health.")
-    print("wizard. A strong magical class with insane power but terrible defenses.")
-    print("falanx. A heavily armored defender class with massive defense but mediocre offense.")
+    print("1. / warrior. Balance between attack rating and defense rating. Good health.")
+    print("2. / wizard. A strong magical class with insane power but terrible defenses.")
+    print("3. / falanx. A heavily armored defender class with massive defense but mediocre offense.")
     class_input = input("Class choice: ")
     print(lb)
-    if class_input == "warrior" or class_input == "wizard" or class_input == "falanx":
+    if class_input == "warrior" or class_input == "wizard" or class_input == "falanx" or class_input == "1" or class_input == "2" or class_input == "3":
         print("Welcome, mighty " + class_input + "!")
         class_stats(class_input)
     elif class_input == "exit":
@@ -101,19 +101,19 @@ def class_stats(class_choice):
     header()
     print("Note: stats are randomly generated based on your class choice.")
     print(lb)
-    if class_choice == "warrior":
+    if class_choice == "warrior" or class_choice == "1":
         strength = random.randint(2,5)
         defense = random.randint(2,5)
         health = random.randint(20,30)
         current_health = health
         print("You, fine warrior have: " + str(strength) + " attack. " + str(defense) + " defense. " + str(health) + " health.")
-    elif class_choice == "wizard":
+    elif class_choice == "wizard" or class_choice == "2":
         strength = random.randint(5,15)
         defense = random.randint(0,3)
         health = random.randint(5,20)
         current_health = health
         print("You, fine warrior have: " + str(strength) + " attack. " + str(defense) + " defense. " + str(health) + " health.")
-    elif class_choice == "falanx":
+    elif class_choice == "falanx" or class_choice == "3":
         strength = random.randint(1,5)
         defense = random.randint(5,15)
         health = random.randint(1,40)
