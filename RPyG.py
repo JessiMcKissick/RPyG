@@ -3,7 +3,7 @@ import random
 import time
 import platform
 
-version = "0.2"
+version = "0.6"
 lb = "-----------------------------------------------------------------------------"
 def lbl():
     print(lb)
