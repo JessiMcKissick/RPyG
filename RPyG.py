@@ -1,7 +1,8 @@
+import os
 import random
 import time
 
-version = "0.1"
+version = "0.2"
 lb = "-----------------------------------------------------------------------------"
 def lbl():
     print(lb)
@@ -29,9 +30,8 @@ def header():
     print("  \(     )/    \(                )/            \( |____|/ ")
 
 def clear_screen():
-    print(chr(27)+'[2j')
-    print('\033c')
-    print('\x1bc')
+    # Todo: Write a more robust system that detects the OS and uses the relevant command.
+    os.system("cls")
 
 def intro():
     clear_screen()
